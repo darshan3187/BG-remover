@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const aiServiceUrl = process.env.AI_SERVICE_URL || 'https://d0e4a00508a979b9-34-50-171-26.serveousercontent.com/remove-bg';
+    const aiServiceUrl = process.env.AI_SERVICE_URL || 'http://127.0.0.1:8000/remove-bg';
 
     // Prepare FormData payload for FastAPI microservice
     const forwardFormData = new FormData();
