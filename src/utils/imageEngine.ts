@@ -365,7 +365,7 @@ export async function removeBackgroundAI(imageInput: File | string): Promise<{ b
       formData.append('file', imageInput, imageInput.name);
     }
 
-    const apiEndpoint = process.env.NEXT_PUBLIC_AI_SERVICE_URL || '/remove-bg';
+    const apiEndpoint = process.env.NEXT_PUBLIC_AI_SERVICE_URL || '/api/remove-bg';
     const apiResponse = await fetch(apiEndpoint, {
       method: 'POST',
       body: formData,
