@@ -15,6 +15,8 @@ WORKDIR /app
 # Copy requirements & install dependencies
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
+# Pre-download Hugging Face weights into the container image at build time
+RUN python3 -c "from transformers import AutoModelForImageSegmentation; AutoModelForImageSegmentation.from_pretrained('briaai/RMBG-1.4', trust_remote_code=True)"
 
 # Copy application files
 COPY . .
