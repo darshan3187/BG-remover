@@ -55,4 +55,4 @@ jobs:
         with:
           app-name: 'bgremover-api'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9654FD5551424F9692C47ADD0BBEE58D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E9AC79EAB4CC45E7B5FD7E35068D6722 }}
