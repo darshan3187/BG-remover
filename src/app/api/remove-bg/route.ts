@@ -16,7 +16,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const aiServiceUrl = process.env.AI_SERVICE_URL || 'http://127.0.0.1:8000/remove-bg';
+    const aiServiceUrl =
+      process.env.NEXT_PUBLIC_AI_SERVICE_URL ||
+      process.env.AI_SERVICE_URL ||
+      'https://bgremover-api-gpcshyedgsgeehge.indonesiacentral-01.azurewebsites.net/remove-bg';
 
     // Prepare FormData payload for FastAPI microservice
     const forwardFormData = new FormData();
@@ -24,7 +27,7 @@ export async function POST(req: NextRequest) {
 
     // Forward to Python AI microservice with timeout
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60s timeout for CPU inference
 
     const aiResponse = await fetch(aiServiceUrl, {
       method: 'POST',
