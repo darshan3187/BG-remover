@@ -134,8 +134,14 @@ def process_background_removal(image_bytes: bytes) -> bytes:
     model, transform = load_rmbg_model()
     device = get_device()
 
-    # 1. Load original PIL image
+    # 1. Load original PIL image & cap max dimensions to prevent OOM / 502 Bad Gateway
     orig_pil = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    
+    # Cap maximum dimension to 1024px for CPU efficiency & RAM stability
+    MAX_DIM = 1024
+    if orig_pil.width > MAX_DIM or orig_pil.height > MAX_DIM:
+        orig_pil.thumbnail((MAX_DIM, MAX_DIM), Image.Resampling.LANCZOS)
+        
     orig_w, orig_h = orig_pil.size
 
     # 2. Preprocess tensor & ensure matching dtype
