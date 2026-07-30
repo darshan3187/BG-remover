@@ -365,7 +365,8 @@ export async function removeBackgroundAI(imageInput: File | string): Promise<{ b
       formData.append('file', imageInput, imageInput.name);
     }
 
-    const aiServiceUrl = process.env.NEXT_PUBLIC_AI_SERVICE_URL || '/api/remove-bg';
+    // Always call Next.js API proxy route to prevent browser Mixed Content (HTTPS -> HTTP) blocks on Vercel
+    const aiServiceUrl = '/api/remove-bg';
 
     const apiResponse = await fetch(aiServiceUrl, {
       method: 'POST',
