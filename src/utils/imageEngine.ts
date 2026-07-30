@@ -377,11 +377,17 @@ export async function removeBackgroundAI(imageInput: File | string): Promise<{ b
       const endTime = performance.now();
       const timeMs = Math.round(endTime - startTime);
       const url = URL.createObjectURL(finalBlob);
+      const engine = apiResponse.headers.get('X-AI-Engine') || 'AWS-EC2-BiRefNet';
+      console.log(`🚀 [AWS EC2 ENGINE ACTIVE] Background removal completed via AWS Microservice (http://3.81.11.135:8000) in ${timeMs}ms! Engine: ${engine}`);
       return { blob: finalBlob, url, timeMs };
+    } else {
+      console.error('❌ AWS AI Backend HTTP error:', apiResponse.status, await apiResponse.text());
     }
   } catch (apiErr) {
-    console.warn('SOTA API microservice notice, executing client-side WASM CV engine:', apiErr);
+    console.error('❌ Could not connect to AWS Microservice:', apiErr);
   }
+
+  console.warn('⚠️ [FALLBACK WARNING] AWS server was not used! Executing client-side WASM engine as fallback...');
 
   // 2. Client-Side WASM Engine Fallback with Topological Hole-Closing & Sigmoidal Edge Matting
   try {

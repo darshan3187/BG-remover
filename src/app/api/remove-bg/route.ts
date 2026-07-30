@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     const aiServiceUrl =
       process.env.NEXT_PUBLIC_AI_SERVICE_URL ||
       process.env.AI_SERVICE_URL ||
-      'https://bgremover-api-gpcshyedgsgeehge.indonesiacentral-01.azurewebsites.net/remove-bg';
+      'http://3.81.11.135:8000/remove-bg';
 
     // Prepare FormData payload for FastAPI microservice
     const forwardFormData = new FormData();
