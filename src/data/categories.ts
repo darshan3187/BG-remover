@@ -1,0 +1,60 @@
+import { Category } from '@/types/content';
+
+export const CATEGORIES: Record<string, Category> = {
+  'background-removal': {
+    id: 'cat-1',
+    name: 'Background Removal',
+    slug: 'background-removal',
+    description: 'Comprehensive guides, algorithms, and practical techniques for removing backgrounds from photos, graphics, and product shots.',
+    seoTitle: 'Background Removal Guides & Tutorials — BG Remover',
+    seoDescription: 'Master background removal techniques for portraits, product photography, and graphics using AI and manual tools.',
+  },
+  'image-editing': {
+    id: 'cat-2',
+    name: 'Image Editing',
+    slug: 'image-editing',
+    description: 'Workflows, retouching methods, compositing tips, and graphic enhancement techniques for digital creators.',
+    seoTitle: 'Digital Image Editing Techniques & Best Practices',
+    seoDescription: 'Learn image editing fundamentals, drop shadow creation, color balancing, and backdrop replacement.',
+  },
+  'ecommerce': {
+    id: 'cat-3',
+    name: 'E-Commerce Photography',
+    slug: 'ecommerce',
+    description: 'Optimization guidelines, marketplace requirements, and catalog photo preparation for online sellers.',
+    seoTitle: 'E-Commerce Product Image Guides & Marketplace Rules',
+    seoDescription: 'Prepare high-converting product photos for Amazon, Shopify, eBay, and Etsy with clean white or transparent backgrounds.',
+  },
+  'product-photography': {
+    id: 'cat-4',
+    name: 'Product Photography',
+    slug: 'product-photography',
+    description: 'Professional camera setup, studio lighting, edge sharpness, and backdrop isolation techniques.',
+    seoTitle: 'Product Photography Guidelines & Lighting Tips',
+    seoDescription: 'Tips for shooting sharp product images, managing fine edge reflections, and preparing cutouts for commercial catalogs.',
+  },
+  'design': {
+    id: 'cat-5',
+    name: 'Graphic Design',
+    slug: 'design',
+    description: 'Asset preparation, sticker cutouts, vector SVG outlines, thumbnails, and visual marketing assets.',
+    seoTitle: 'Graphic Design Asset Creation & Cutout Workflows',
+    seoDescription: 'How to create transparent PNG logos, sticker outlines, SVG vectors, and marketing cutouts for social media.',
+  },
+  'privacy-ai': {
+    id: 'cat-6',
+    name: 'AI & Data Privacy',
+    slug: 'privacy-ai',
+    description: 'Technical breakdowns of browser-based WebAssembly, ONNX runtimes, client-side inference, and photo privacy.',
+    seoTitle: 'Client-Side AI & Image Privacy Explained',
+    seoDescription: 'Understand how browser-based WebAssembly and ONNX AI models process images locally to protect confidential photo data.',
+  },
+  'image-formats': {
+    id: 'cat-7',
+    name: 'Image Formats & Specs',
+    slug: 'image-formats',
+    description: 'Technical analysis of PNG, JPG, WebP, AVIF, alpha transparency channels, and color spaces.',
+    seoTitle: 'Image Formats, Transparency & Alpha Channels Explained',
+    seoDescription: 'Deep dive into PNG vs JPG, WebP transparency, alpha channels, compression algorithms, and visual fidelity.',
+  },
+};
